@@ -11,37 +11,22 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    // MARK: Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
+        scene.scaleMode = .aspectFill
         
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+        let skView = view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.showsPhysics = true
+        skView.ignoresSiblingOrder = true
+        
+        skView.presentScene(scene)
     }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 }
