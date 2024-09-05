@@ -14,27 +14,27 @@ class GameScene: SKScene {
     // MARK: Objects
     
     private struct Constants {
-        static let scoreLabelColor: UIColor = .systemYellow
+        static let scoreLabelColor: UIColor = UIColor(hexString: "FFCC00")
     }
     
     // MARK: - Properties
     
-    var ground: SKSpriteNode!
-    var hero: SKSpriteNode!
-    var livesArray: [SKSpriteNode] = []
-    var coinArray: [SKSpriteNode] = []
-    var rockArray: [SKSpriteNode] = []
+    private var ground: SKSpriteNode!
+    private var hero: SKSpriteNode!
+    private var livesArray: [SKSpriteNode] = []
+    private var coinArray: [SKSpriteNode] = []
+    private var rockArray: [SKSpriteNode] = []
     
-    var scoreLabel: SKLabelNode!
+    private var scoreLabel: SKLabelNode!
     
-    var coinSpawnTimer: Timer?
-    var rockSpawnTimer: Timer?
+    private var coinSpawnTimer: Timer?
+    private var rockSpawnTimer: Timer?
     
-    var score: Int = 0
-    var maxScore = 20
-    let coinSpawnHeight: CGFloat = 100.0
-    let heroJumpHeight: CGFloat = 300.0
-    var isJumping: Bool  = false
+    private var score: Int = 0
+    private var maxScore = 20
+    private let coinSpawnHeight: CGFloat = 100.0
+    private let heroJumpHeight: CGFloat = 300.0
+    private var isJumping: Bool  = false
     
     private var backgroundMusicPlayer: AVAudioPlayer?
     
