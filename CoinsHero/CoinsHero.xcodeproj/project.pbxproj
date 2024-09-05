@@ -17,6 +17,7 @@
 		DD257E9D2C89004D002E9166 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = DD257E9C2C89004D002E9166 /* Base */; };
 		DD257EA52C890251002E9166 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EA42C890251002E9166 /* MenuViewController.swift */; };
 		DD257EA72C8902E5002E9166 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EA62C8902E5002E9166 /* SelectLevelViewController.swift */; };
+		DD257EAB2C89A4CF002E9166 /* Lepka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD257EA92C89A4CF002E9166 /* Lepka.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		DD257E9C2C89004D002E9166 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD257EA42C890251002E9166 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DD257EA62C8902E5002E9166 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
+		DD257EA92C89A4CF002E9166 /* Lepka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lepka.ttf; sourceTree = "<group>"; };
+		DD257EAD2C89A5BD002E9166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +66,14 @@
 		DD257E8B2C89004C002E9166 /* CoinsHero */ = {
 			isa = PBXGroup;
 			children = (
+				DD257EAD2C89A5BD002E9166 /* Info.plist */,
 				DD257E8C2C89004C002E9166 /* AppDelegate.swift */,
 				DD257E8E2C89004C002E9166 /* GameScene.sks */,
 				DD257E902C89004C002E9166 /* Actions.sks */,
 				DD257EA82C899751002E9166 /* Scenes */,
 				DD257EA32C890212002E9166 /* Controllers */,
-				DD257E962C89004C002E9166 /* Main.storyboard */,
-				DD257E992C89004D002E9166 /* Assets.xcassets */,
-				DD257E9B2C89004D002E9166 /* LaunchScreen.storyboard */,
+				DD257EAA2C89A4CF002E9166 /* Fonts */,
+				DD257EAC2C89A4F7002E9166 /* Resources */,
 			);
 			path = CoinsHero;
 			sourceTree = "<group>";
@@ -91,6 +94,24 @@
 				DD257E922C89004C002E9166 /* GameScene.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DD257EAA2C89A4CF002E9166 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD257EA92C89A4CF002E9166 /* Lepka.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DD257EAC2C89A4F7002E9166 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD257E992C89004D002E9166 /* Assets.xcassets */,
+				DD257E9B2C89004D002E9166 /* LaunchScreen.storyboard */,
+				DD257E962C89004C002E9166 /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD257EAB2C89A4CF002E9166 /* Lepka.ttf in Resources */,
 				DD257E8F2C89004C002E9166 /* GameScene.sks in Resources */,
 				DD257E982C89004C002E9166 /* Base in Resources */,
 				DD257E9A2C89004D002E9166 /* Assets.xcassets in Resources */,
@@ -324,6 +346,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D28SS25G7Y;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoinsHero/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -353,6 +376,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D28SS25G7Y;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoinsHero/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
