@@ -151,7 +151,7 @@ class GameScene: SKScene {
             health.setScale(0.2)
             
             let xPosition = additionalOffset + health.size.width / 2 + CGFloat(i) * (health.size.width * 0.2 + spacing)
-            health.position = CGPoint(x: xPosition, y: size.height - health.size.height / 2.0 - 360.0)
+            health.position = CGPoint(x: xPosition, y: size.height - health.size.height / 2.0 - 330.0)
             health.zPosition = 8.0
             
             self.addChild(health)
@@ -168,7 +168,7 @@ class GameScene: SKScene {
         
         let livesHeight = self.livesArray.first?.size.height ?? 0.0
         let xOffset: CGFloat = 240.0
-        let yOffset: CGFloat = -60.0
+        let yOffset: CGFloat = -90.0
         
         self.scoreLabel.position = CGPoint(x: (self.livesArray.last?.position.x ?? 0) + (self.livesArray.last?.size.width ?? 0) / 2 + xOffset,
                                            y: size.height - livesHeight / 2.0 - 444.0 - yOffset)
