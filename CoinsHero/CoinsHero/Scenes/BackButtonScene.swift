@@ -12,7 +12,7 @@ class BackButtonScene: SKScene {
     // MARK: Properties
     
     private var backButtonNode: SKSpriteNode!
-    var backButtonAction: (() -> Void)?
+    var backButtonActionHandler: (() -> Void)?
     
     // MARK: Lifecycle
     
@@ -36,7 +36,7 @@ class BackButtonScene: SKScene {
         let touchedNodes = nodes(at: location)
         
         if touchedNodes.contains(self.backButtonNode) {
-            self.backButtonAction?()
+            self.backButtonActionHandler?()
         }
     }
     

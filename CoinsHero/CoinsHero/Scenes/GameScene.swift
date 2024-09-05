@@ -21,9 +21,9 @@ class GameScene: SKScene {
     
     private var ground: SKSpriteNode!
     private var hero: SKSpriteNode!
-    private var livesArray: [SKSpriteNode] = []
-    private var coinArray: [SKSpriteNode] = []
-    private var rockArray: [SKSpriteNode] = []
+    private var lives: [SKSpriteNode] = []
+    private var coins: [SKSpriteNode] = []
+    private var rocks: [SKSpriteNode] = []
     
     private var scoreLabel: SKLabelNode!
     
@@ -31,23 +31,27 @@ class GameScene: SKScene {
     private var rockSpawnTimer: Timer?
     
     private var score: Int = 0
-    private var maxScore = 200
+    private var maxScore: Int = 20
     private let coinSpawnHeight: CGFloat = 100.0
     private let heroJumpHeight: CGFloat = 300.0
     private var isJumping: Bool  = false
     
     private var backgroundMusicPlayer: AVAudioPlayer?
     
-    var backButtonTapped: (() -> Void)?
+    var backButtonTappedHandler: (() -> Void)?
     
-    // MARK: - Systems
+    // MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
+        self.setup()
+    }
+    
+    // MARK: - Methods
+    
+    private func setup() {
         self.setupNodes()
         self.playBackgroundMusic()
     }
-    
-    // MARK: - Configurations
     
     private func setupNodes() {
         self.createBackground()
@@ -63,10 +67,10 @@ class GameScene: SKScene {
     private func addSpriteToScene() {
         let spriteTexture = SKTexture(imageNamed: "backButton")
         let sprite = SKSpriteNode(texture: spriteTexture)
-        sprite.name = "Back"
-        sprite.position = CGPoint(x: self.size.width / 2 - 1000.0, y: self.size.height / 2 + 400.0)
+        sprite.name = "backButton"
+        sprite.position = CGPoint(x: self.size.width / 2.0 - 1000.0, y: self.size.height / 2.0 + 400.0)
         sprite.zPosition = 100.0
-        sprite.setScale(0.25)
+        sprite.setScale(0.3)
         
         self.addChild(sprite)
     }
@@ -155,7 +159,7 @@ class GameScene: SKScene {
             health.zPosition = 8.0
             
             self.addChild(health)
-            self.livesArray.append(health)
+            self.lives.append(health)
         }
     }
     
@@ -166,11 +170,11 @@ class GameScene: SKScene {
         self.scoreLabel.fontSize = 66.0
         self.scoreLabel.zPosition = 10.0
         
-        let livesHeight = self.livesArray.first?.size.height ?? 0.0
+        let livesHeight = self.lives.first?.size.height ?? .zero
         let xOffset: CGFloat = 240.0
         let yOffset: CGFloat = -90.0
         
-        self.scoreLabel.position = CGPoint(x: (self.livesArray.last?.position.x ?? 0) + (self.livesArray.last?.size.width ?? 0) / 2 + xOffset,
+        self.scoreLabel.position = CGPoint(x: (self.lives.last?.position.x ?? .zero) + (self.lives.last?.size.width ?? .zero) / 2.0 + xOffset,
                                            y: size.height - livesHeight / 2.0 - 444.0 - yOffset)
         self.addChild(self.scoreLabel)
     }
@@ -181,18 +185,18 @@ class GameScene: SKScene {
         coin.setScale(0.15)
         
         let xPosition = self.size.width + coin.size.width / 2.0
-        let yPosition = self.ground.position.y + self.ground.size.height + coin.size.height / 2 + CGFloat.random(in: self.coinSpawnHeight...(self.coinSpawnHeight + self.heroJumpHeight))
+        let yPosition = self.ground.position.y + self.ground.size.height + coin.size.height / 2.0 + CGFloat.random(in: self.coinSpawnHeight...(self.coinSpawnHeight + self.heroJumpHeight))
         
         coin.position = CGPoint(x: xPosition, y: yPosition)
         coin.zPosition = 5.0
         
-        let moveAction = SKAction.moveBy(x: -self.size.width - coin.size.width, y: 0.0, duration: 10.0)
+        let moveAction = SKAction.moveBy(x: -self.size.width - coin.size.width, y: .zero, duration: 10.0)
         let removeAction = SKAction.removeFromParent()
         let moveAndRemove = SKAction.sequence([moveAction, removeAction])
         coin.run(moveAndRemove)
         
         self.addChild(coin)
-        self.coinArray.append(coin)
+        self.coins.append(coin)
     }
     
     private func spawnRock() {
@@ -212,7 +216,7 @@ class GameScene: SKScene {
         rock.run(moveAndRemove)
         
         self.addChild(rock)
-        self.rockArray.append(rock)
+        self.rocks.append(rock)
     }
     
     private func startSpawningCoins() {
@@ -246,7 +250,7 @@ class GameScene: SKScene {
     }
     
     private func checkForCollisions() {
-        for coin in self.coinArray {
+        for coin in self.coins {
             if self.hero.frame.intersects(coin.frame) {
                 let coinSoundAction = SKAction.playSoundFileNamed("coinRecieved.mp3", waitForCompletion: false)
                 
@@ -254,7 +258,7 @@ class GameScene: SKScene {
                 
                 coin.removeFromParent()
                 
-                self.coinArray.removeAll { $0 == coin }
+                self.coins.removeAll { $0 == coin }
                 self.score += 1
                 self.scoreLabel.text = "Score: \(score) / \(self.maxScore)"
                 
@@ -264,7 +268,7 @@ class GameScene: SKScene {
             }
         }
         
-        for rock in self.rockArray {
+        for rock in self.rocks {
             if self.hero.frame.intersects(rock.frame) {
                 let rockSoundAction = SKAction.playSoundFileNamed("rockHite", waitForCompletion: false)
                 
@@ -272,20 +276,20 @@ class GameScene: SKScene {
 
                 rock.removeFromParent()
                 
-                self.rockArray.removeAll { $0 == rock }
+                self.rocks.removeAll { $0 == rock }
                 
-                if !livesArray.isEmpty {
-                    let life = self.livesArray.removeFirst()
+                if !lives.isEmpty {
+                    let life = self.lives.removeFirst()
                     life.removeFromParent()
                     
                     let changeColorAction = SKAction.colorize(with: .red, colorBlendFactor: 0.5, duration: 0.1)
                     let waitAction = SKAction.wait(forDuration: 0.4)
-                    let restoreColorAction = SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.1)
+                    let restoreColorAction = SKAction.colorize(withColorBlendFactor: .zero, duration: 0.1)
                     let colorChangeSequence = SKAction.sequence([changeColorAction, waitAction, restoreColorAction])
                     
                     self.hero.run(colorChangeSequence)
                     
-                    if self.livesArray.isEmpty {
+                    if self.lives.isEmpty {
                         self.showGameOver()
                     }
                 }
@@ -297,21 +301,21 @@ class GameScene: SKScene {
         self.coinSpawnTimer?.invalidate()
         self.rockSpawnTimer?.invalidate()
         
-        for coin in self.coinArray {
+        for coin in self.coins {
             coin.removeFromParent()
         }
-        self.coinArray.removeAll()
+        self.coins.removeAll()
         
-        for rock in self.rockArray {
+        for rock in self.rocks {
             rock.removeFromParent()
         }
-        self.rockArray.removeAll()
+        self.rocks.removeAll()
         
         let winSprite = SKSpriteNode(imageNamed: "youWin")
         winSprite.scale(to: CGSize(width: 400.0, height: 200.0))
-        winSprite.zPosition = 20
-        let xPosition = self.size.width / 2
-        let yPosition = self.size.height / 2
+        winSprite.zPosition = 20.0
+        let xPosition = self.size.width / 2.0
+        let yPosition = self.size.height / 2.0
         winSprite.position = CGPoint(x: xPosition, y: yPosition)
         
         self.addChild(winSprite)
@@ -330,20 +334,20 @@ class GameScene: SKScene {
         self.coinSpawnTimer?.invalidate()
         self.rockSpawnTimer?.invalidate()
         
-        for coin in self.coinArray {
+        for coin in self.coins {
             coin.removeFromParent()
         }
-        self.coinArray.removeAll()
+        self.coins.removeAll()
         
-        for rock in self.rockArray {
+        for rock in self.rocks {
             rock.removeFromParent()
         }
-        self.rockArray.removeAll()
+        self.rocks.removeAll()
         
         let gameOverSprite = SKSpriteNode(imageNamed: "gameOver")
-        gameOverSprite.zPosition = 20
-        let xPosition = self.size.width / 2
-        let yPosition = self.size.height / 2
+        gameOverSprite.zPosition = 20.0
+        let xPosition = self.size.width / 2.0
+        let yPosition = self.size.height / 2.0
         gameOverSprite.position = CGPoint(x: xPosition, y: yPosition)
         
         self.addChild(gameOverSprite)
@@ -378,8 +382,8 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            if let node = self.atPoint(location) as? SKSpriteNode, node.name == "Back" {
-                backButtonTapped?()
+            if let node = self.atPoint(location) as? SKSpriteNode, node.name == "backButton" {
+                self.backButtonTappedHandler?()
             } else {
                 self.jumpHero()
             }

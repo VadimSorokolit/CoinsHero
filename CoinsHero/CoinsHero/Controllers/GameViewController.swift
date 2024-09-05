@@ -35,7 +35,7 @@ class GameViewController: UIViewController {
         let scene = GameScene(size: sceneSize)
         scene.scaleMode = .aspectFill
         
-        scene.backButtonTapped = { [weak self] in
+        scene.backButtonTappedHandler = { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }
         

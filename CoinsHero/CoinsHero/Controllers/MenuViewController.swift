@@ -24,7 +24,7 @@ class MenuViewController: UIViewController {
         button.setTitle("Start Game", for: .normal)
         button.titleLabel?.font = UIFont(name: "Lepka", size: 40.0)
         button.setTitleColor(Constants.buttonsTextColor, for: .normal)
-        button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.startGame), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -93,7 +93,8 @@ class MenuViewController: UIViewController {
             self.optionsButton.topAnchor.constraint(equalTo: self.startButton.bottomAnchor, constant: 20.0),
             self.highScoreButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.highScoreButton.topAnchor.constraint(equalTo: self.optionsButton.bottomAnchor, constant: 20.0)
-        ])    }
+        ])
+    }
 
     // MARK: - Events
     

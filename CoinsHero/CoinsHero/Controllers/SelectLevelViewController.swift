@@ -48,18 +48,18 @@ class SelectLevelViewController: UIViewController {
         super.viewDidLoad()
         
         self.setup()
-        self.setupAudio()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        musicPlayer?.stop()
+        self.musicPlayer?.stop()
     }
     
     // MARK: - Methods
     
     private func setup() {
         self.setupViews()
+        self.setupAudio()
     }
     
     private func setupViews() {
@@ -77,7 +77,7 @@ class SelectLevelViewController: UIViewController {
         backgroundSprite.size = scene.size
         scene.addChild(backgroundSprite)
         
-        scene.backButtonAction = { [weak self] in
+        scene.backButtonActionHandler = { [weak self] in
             self?.backButtonTapped()
         }
         
@@ -130,7 +130,7 @@ class SelectLevelViewController: UIViewController {
         }
         
         self.view.addSubview(stackView)
-        self.view.addSubview(self.titleLabel) // Add titleLabel directly to the view
+        self.view.addSubview(self.titleLabel) 
         
         NSLayoutConstraint.activate([
             self.titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -147,10 +147,10 @@ class SelectLevelViewController: UIViewController {
         }
 
         do {
-            musicPlayer = try AVAudioPlayer(contentsOf: musicURL)
-            musicPlayer?.numberOfLoops = -1
-            musicPlayer?.prepareToPlay()
-            musicPlayer?.play()
+            self.musicPlayer = try AVAudioPlayer(contentsOf: musicURL)
+            self.musicPlayer?.numberOfLoops = -1
+            self.musicPlayer?.prepareToPlay()
+            self.musicPlayer?.play()
         } catch {
             print("Error initializing audio player: \(error.localizedDescription)")
         }
