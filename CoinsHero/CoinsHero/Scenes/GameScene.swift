@@ -66,15 +66,22 @@ class GameScene: SKScene {
     
     private func addSpriteToScene() {
         let spriteTexture = SKTexture(imageNamed: "backButton")
+        
         let sprite = SKSpriteNode(texture: spriteTexture)
         sprite.name = "backButton"
         sprite.position = CGPoint(x: self.size.width / 2.0 - 1000.0, y: self.size.height / 2.0 + 400.0)
         sprite.zPosition = 100.0
-        sprite.setScale(0.3)
+        sprite.size = CGSize(width: spriteTexture.size().width * 0.3, height: spriteTexture.size().height * 0.3)
         
+        let hitArea = SKSpriteNode(color: .clear, size: CGSize(width: sprite.size.width * 2.0, height: sprite.size.height * 2))
+        hitArea.position = sprite.position
+        hitArea.zPosition = sprite.zPosition
+        hitArea.name = "backButtonHitArea"
+        
+        self.addChild(hitArea)
         self.addChild(sprite)
     }
-
+    
     private func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "background")
         let moveDuration: TimeInterval = 4.0
@@ -382,7 +389,9 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            if let node = self.atPoint(location) as? SKSpriteNode, node.name == "backButton" {
+            let node = self.atPoint(location)
+            
+            if node.name == "backButton" || node.name == "backButtonHitArea" {
                 self.backButtonTappedHandler?()
             } else {
                 self.jumpHero()
