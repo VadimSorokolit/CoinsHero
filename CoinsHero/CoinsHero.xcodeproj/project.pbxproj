@@ -25,6 +25,7 @@
 		DD257EB92C89A86D002E9166 /* rockHite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB22C89A86D002E9166 /* rockHite.mp3 */; };
 		DD257EBA2C89A86D002E9166 /* youWin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB32C89A86D002E9166 /* youWin.mp3 */; };
 		DD257EBD2C89C086002E9166 /* UIColor+hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EBC2C89C086002E9166 /* UIColor+hexString.swift */; };
+		DD257EBF2C89C260002E9166 /* BackButtonScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EBE2C89C260002E9166 /* BackButtonScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		DD257EB22C89A86D002E9166 /* rockHite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rockHite.mp3; sourceTree = "<group>"; };
 		DD257EB32C89A86D002E9166 /* youWin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = youWin.mp3; sourceTree = "<group>"; };
 		DD257EBC2C89C086002E9166 /* UIColor+hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexString.swift"; sourceTree = "<group>"; };
+		DD257EBE2C89C260002E9166 /* BackButtonScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		DD257EA82C899751002E9166 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DD257EBE2C89C260002E9166 /* BackButtonScene.swift */,
 				DD257E922C89004C002E9166 /* GameScene.swift */,
 			);
 			path = Scenes;
@@ -233,6 +236,7 @@
 			files = (
 				DD257EBD2C89C086002E9166 /* UIColor+hexString.swift in Sources */,
 				DD257E932C89004C002E9166 /* GameScene.swift in Sources */,
+				DD257EBF2C89C260002E9166 /* BackButtonScene.swift in Sources */,
 				DD257E952C89004C002E9166 /* GameViewController.swift in Sources */,
 				DD257E8D2C89004C002E9166 /* AppDelegate.swift in Sources */,
 				DD257EA72C8902E5002E9166 /* SelectLevelViewController.swift in Sources */,
