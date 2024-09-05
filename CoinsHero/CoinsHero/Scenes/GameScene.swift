@@ -31,7 +31,7 @@ class GameScene: SKScene {
     private var rockSpawnTimer: Timer?
     
     private var score: Int = 0
-    private var maxScore = 20
+    private var maxScore = 200
     private let coinSpawnHeight: CGFloat = 100.0
     private let heroJumpHeight: CGFloat = 300.0
     private var isJumping: Bool  = false
@@ -138,7 +138,7 @@ class GameScene: SKScene {
     private func addLives() {
         let healthTexture = SKTexture(imageNamed: "health")
         let spacing: CGFloat = 90.0
-        let additionalOffset: CGFloat = 1500.0
+        let additionalOffset: CGFloat = 1400.0
         
         for i in 0..<3 {
             let health = SKSpriteNode(texture: healthTexture)
