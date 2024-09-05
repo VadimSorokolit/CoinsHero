@@ -11,7 +11,7 @@ class BackButtonScene: SKScene {
     
     // MARK: Properties
     
-    var backButtonNode: SKSpriteNode!
+    private var backButtonNode: SKSpriteNode!
     var backButtonAction: (() -> Void)?
     
     // MARK: Lifecycle

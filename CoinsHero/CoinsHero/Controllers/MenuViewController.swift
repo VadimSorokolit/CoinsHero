@@ -97,15 +97,15 @@ class MenuViewController: UIViewController {
 
     // MARK: - Events
     
-    @objc func startGame() {
+    @objc private func startGame() {
         let selectLevelViewController = SelectLevelViewController()
         navigationController?.pushViewController(selectLevelViewController, animated: true)
     }
     
-    @objc func openOptions() {
+    @objc private func openOptions() {
     }
     
-    @objc func showHighScore() {
+    @objc private func showHighScore() {
  
     }
     
