@@ -63,11 +63,11 @@
 		DD257E8B2C89004C002E9166 /* CoinsHero */ = {
 			isa = PBXGroup;
 			children = (
-				DD257EA32C890212002E9166 /* Controllers */,
 				DD257E8C2C89004C002E9166 /* AppDelegate.swift */,
 				DD257E8E2C89004C002E9166 /* GameScene.sks */,
 				DD257E902C89004C002E9166 /* Actions.sks */,
-				DD257E922C89004C002E9166 /* GameScene.swift */,
+				DD257EA82C899751002E9166 /* Scenes */,
+				DD257EA32C890212002E9166 /* Controllers */,
 				DD257E962C89004C002E9166 /* Main.storyboard */,
 				DD257E992C89004D002E9166 /* Assets.xcassets */,
 				DD257E9B2C89004D002E9166 /* LaunchScreen.storyboard */,
@@ -83,6 +83,14 @@
 				DD257E942C89004C002E9166 /* GameViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DD257EA82C899751002E9166 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DD257E922C89004C002E9166 /* GameScene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
