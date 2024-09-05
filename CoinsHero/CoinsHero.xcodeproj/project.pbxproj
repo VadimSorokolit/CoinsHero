@@ -18,6 +18,12 @@
 		DD257EA52C890251002E9166 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EA42C890251002E9166 /* MenuViewController.swift */; };
 		DD257EA72C8902E5002E9166 /* SelectLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EA62C8902E5002E9166 /* SelectLevelViewController.swift */; };
 		DD257EAB2C89A4CF002E9166 /* Lepka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD257EA92C89A4CF002E9166 /* Lepka.ttf */; };
+		DD257EB52C89A86D002E9166 /* coinRecieved.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EAE2C89A86D002E9166 /* coinRecieved.mp3 */; };
+		DD257EB62C89A86D002E9166 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EAF2C89A86D002E9166 /* gameMusic.mp3 */; };
+		DD257EB72C89A86D002E9166 /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB02C89A86D002E9166 /* gameOver.mp3 */; };
+		DD257EB82C89A86D002E9166 /* menuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB12C89A86D002E9166 /* menuMusic.mp3 */; };
+		DD257EB92C89A86D002E9166 /* rockHite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB22C89A86D002E9166 /* rockHite.mp3 */; };
+		DD257EBA2C89A86D002E9166 /* youWin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB32C89A86D002E9166 /* youWin.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		DD257EA62C8902E5002E9166 /* SelectLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLevelViewController.swift; sourceTree = "<group>"; };
 		DD257EA92C89A4CF002E9166 /* Lepka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lepka.ttf; sourceTree = "<group>"; };
 		DD257EAD2C89A5BD002E9166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DD257EAE2C89A86D002E9166 /* coinRecieved.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coinRecieved.mp3; sourceTree = "<group>"; };
+		DD257EAF2C89A86D002E9166 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameMusic.mp3; sourceTree = "<group>"; };
+		DD257EB02C89A86D002E9166 /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
+		DD257EB12C89A86D002E9166 /* menuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuMusic.mp3; sourceTree = "<group>"; };
+		DD257EB22C89A86D002E9166 /* rockHite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rockHite.mp3; sourceTree = "<group>"; };
+		DD257EB32C89A86D002E9166 /* youWin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = youWin.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +80,12 @@
 			children = (
 				DD257EAD2C89A5BD002E9166 /* Info.plist */,
 				DD257E8C2C89004C002E9166 /* AppDelegate.swift */,
-				DD257E8E2C89004C002E9166 /* GameScene.sks */,
 				DD257E902C89004C002E9166 /* Actions.sks */,
+				DD257E8E2C89004C002E9166 /* GameScene.sks */,
 				DD257EA82C899751002E9166 /* Scenes */,
 				DD257EA32C890212002E9166 /* Controllers */,
 				DD257EAA2C89A4CF002E9166 /* Fonts */,
+				DD257EB42C89A86D002E9166 /* Sounds */,
 				DD257EAC2C89A4F7002E9166 /* Resources */,
 			);
 			path = CoinsHero;
@@ -112,6 +125,19 @@
 				DD257E962C89004C002E9166 /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD257EB42C89A86D002E9166 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DD257EAE2C89A86D002E9166 /* coinRecieved.mp3 */,
+				DD257EAF2C89A86D002E9166 /* gameMusic.mp3 */,
+				DD257EB02C89A86D002E9166 /* gameOver.mp3 */,
+				DD257EB12C89A86D002E9166 /* menuMusic.mp3 */,
+				DD257EB22C89A86D002E9166 /* rockHite.mp3 */,
+				DD257EB32C89A86D002E9166 /* youWin.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,8 +202,14 @@
 				DD257E8F2C89004C002E9166 /* GameScene.sks in Resources */,
 				DD257E982C89004C002E9166 /* Base in Resources */,
 				DD257E9A2C89004D002E9166 /* Assets.xcassets in Resources */,
+				DD257EB52C89A86D002E9166 /* coinRecieved.mp3 in Resources */,
+				DD257EB82C89A86D002E9166 /* menuMusic.mp3 in Resources */,
 				DD257E912C89004C002E9166 /* Actions.sks in Resources */,
+				DD257EB62C89A86D002E9166 /* gameMusic.mp3 in Resources */,
 				DD257E9D2C89004D002E9166 /* Base in Resources */,
+				DD257EB92C89A86D002E9166 /* rockHite.mp3 in Resources */,
+				DD257EB72C89A86D002E9166 /* gameOver.mp3 in Resources */,
+				DD257EBA2C89A86D002E9166 /* youWin.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
