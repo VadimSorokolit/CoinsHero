@@ -14,7 +14,7 @@ class SelectLevelViewController: UIViewController {
     // MARK: - Objects
     
     private struct Constants {
-        static let changeLevelLabelTextColor: UIColor = .systemYellow
+        static let changeLevelLabelTextColor: UIColor = UIColor(hexString: "FFCC00")
         static let levelButtonColor: UIColor = UIColor(hexString: "FFFD00")
         static let levelButtonBorderColor: CGColor = UIColor(hexString: "D8A024").cgColor
     }
@@ -72,8 +72,8 @@ class SelectLevelViewController: UIViewController {
         scene.scaleMode = .aspectFill
         
         let backgroundSprite = SKSpriteNode(imageNamed: "background")
-        backgroundSprite.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
-        backgroundSprite.zPosition = -1
+        backgroundSprite.position = CGPoint(x: scene.size.width / 2.0, y: scene.size.height / 2.0)
+        backgroundSprite.zPosition = -1.0
         backgroundSprite.size = scene.size
         scene.addChild(backgroundSprite)
         

@@ -13,7 +13,7 @@ class MenuViewController: UIViewController {
     // MARK: - Objects
     
     private struct Constants {
-        static let buttonsTextColor: UIColor = .systemYellow
+        static let buttonsTextColor: UIColor = UIColor(hexString: "FFCC00")
         static let buttonsBorderColor: CGColor = UIColor.black.cgColor
     }
     
