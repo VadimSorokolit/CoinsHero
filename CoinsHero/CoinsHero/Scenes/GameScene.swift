@@ -200,13 +200,13 @@ class GameScene: SKScene {
         let rock = SKSpriteNode(texture: rockTexture)
         rock.setScale(0.2)
         
-        let xPosition = CGFloat.random(in: 0...self.size.width)
+        let xPosition = self.size.width + rock.size.width / 2.0
         let yPosition = self.ground.position.y + self.ground.size.height + rock.size.height / 2.0 - 10.0
         
         rock.position = CGPoint(x: xPosition, y: yPosition)
         rock.zPosition = 6.0
         
-        let moveAction = SKAction.moveBy(x: -self.size.width * 2.0, y: .zero, duration: 10.0)
+        let moveAction = SKAction.moveBy(x: -self.size.width - rock.size.width, y: .zero, duration: 4.0)
         let removeAction = SKAction.removeFromParent()
         let moveAndRemove = SKAction.sequence([moveAction, removeAction])
         rock.run(moveAndRemove)
