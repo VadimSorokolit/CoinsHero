@@ -31,7 +31,7 @@ class GameScene: SKScene {
     var rockSpawnTimer: Timer?
     
     var score: Int = 0
-    var maxScore = 2
+    var maxScore = 20
     let coinSpawnHeight: CGFloat = 100.0
     let heroJumpHeight: CGFloat = 300.0
     var isJumping: Bool  = false
@@ -174,13 +174,13 @@ class GameScene: SKScene {
         let coin = SKSpriteNode(texture: coinTexture)
         coin.setScale(0.15)
         
-        let xPosition = CGFloat.random(in: 0...self.size.width)
+        let xPosition = self.size.width + coin.size.width / 2.0
         let yPosition = self.ground.position.y + self.ground.size.height + coin.size.height / 2 + CGFloat.random(in: self.coinSpawnHeight...(self.coinSpawnHeight + self.heroJumpHeight))
         
         coin.position = CGPoint(x: xPosition, y: yPosition)
         coin.zPosition = 5.0
         
-        let moveAction = SKAction.moveBy(x: -self.size.width * 2, y: 0, duration: 10.0)
+        let moveAction = SKAction.moveBy(x: -self.size.width - coin.size.width, y: 0.0, duration: 10.0)
         let removeAction = SKAction.removeFromParent()
         let moveAndRemove = SKAction.sequence([moveAction, removeAction])
         coin.run(moveAndRemove)
