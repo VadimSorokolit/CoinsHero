@@ -103,7 +103,7 @@ class SelectLevelViewController: UIViewController {
             self.levelButtons.append(button)
         }
         
-        let stackView = UIStackView(arrangedSubviews: [self.titleLabel])
+        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.spacing = 40.0
@@ -130,10 +130,13 @@ class SelectLevelViewController: UIViewController {
         }
         
         self.view.addSubview(stackView)
+        self.view.addSubview(self.titleLabel) // Add titleLabel directly to the view
         
         NSLayoutConstraint.activate([
+            self.titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.titleLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: -5.0),
             stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: -10.0)
+            stackView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 40.0)
         ])
     }
     
