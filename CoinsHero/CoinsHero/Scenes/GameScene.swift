@@ -351,7 +351,15 @@ class GameScene: SKScene {
         }
         self.rocks.removeAll()
         
+        let xPositionHero = (self.frame.width / 2.0) - 600.0
+        let yPositionHero = ground.frame.height + (self.hero.frame.height / 2.0 - 16.0)
+        self.hero.position = CGPoint(x: xPositionHero, y: yPositionHero)
+        
+        self.hero.zRotation = 3.14
+        self.hero.zPosition = 2.0
+        
         let gameOverSprite = SKSpriteNode(imageNamed: "gameOver")
+        gameOverSprite.setScale(0.15)
         gameOverSprite.zPosition = 20.0
         let xPosition = self.size.width / 2.0
         let yPosition = self.size.height / 2.0
