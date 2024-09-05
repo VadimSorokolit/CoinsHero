@@ -7,16 +7,38 @@
     
 import UIKit
 import SpriteKit
-import GameplayKit
 
 class GameViewController: UIViewController {
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = GameScene(size: CGSize(width: 2048.0, height: 1536.0))
+        
+        self.setup()
+    }
+    
+    // MARK: Methods
+    
+    private func setup() {
+        self.setupViews()
+    }
+    
+    private func setupViews() {
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        let skView = SKView(frame: self.view.bounds)
+        skView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(skView)
+        
+        let sceneSize = CGSize(width: 2248.0, height: 1536.0)
+        let scene = GameScene(size: sceneSize)
         scene.scaleMode = .aspectFill
         
-        let skView = view as! SKView
+        scene.backButtonTapped = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.showsPhysics = true
