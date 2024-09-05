@@ -24,6 +24,7 @@
 		DD257EB82C89A86D002E9166 /* menuMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB12C89A86D002E9166 /* menuMusic.mp3 */; };
 		DD257EB92C89A86D002E9166 /* rockHite.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB22C89A86D002E9166 /* rockHite.mp3 */; };
 		DD257EBA2C89A86D002E9166 /* youWin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD257EB32C89A86D002E9166 /* youWin.mp3 */; };
+		DD257EBD2C89C086002E9166 /* UIColor+hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD257EBC2C89C086002E9166 /* UIColor+hexString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DD257EB12C89A86D002E9166 /* menuMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menuMusic.mp3; sourceTree = "<group>"; };
 		DD257EB22C89A86D002E9166 /* rockHite.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rockHite.mp3; sourceTree = "<group>"; };
 		DD257EB32C89A86D002E9166 /* youWin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = youWin.mp3; sourceTree = "<group>"; };
+		DD257EBC2C89C086002E9166 /* UIColor+hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +82,11 @@
 			children = (
 				DD257EAD2C89A5BD002E9166 /* Info.plist */,
 				DD257E8C2C89004C002E9166 /* AppDelegate.swift */,
-				DD257E902C89004C002E9166 /* Actions.sks */,
 				DD257E8E2C89004C002E9166 /* GameScene.sks */,
+				DD257E902C89004C002E9166 /* Actions.sks */,
 				DD257EA82C899751002E9166 /* Scenes */,
 				DD257EA32C890212002E9166 /* Controllers */,
+				DD257EBB2C89C069002E9166 /* Extensions */,
 				DD257EAA2C89A4CF002E9166 /* Fonts */,
 				DD257EB42C89A86D002E9166 /* Sounds */,
 				DD257EAC2C89A4F7002E9166 /* Resources */,
@@ -138,6 +141,14 @@
 				DD257EB32C89A86D002E9166 /* youWin.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		DD257EBB2C89C069002E9166 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD257EBC2C89C086002E9166 /* UIColor+hexString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD257EBD2C89C086002E9166 /* UIColor+hexString.swift in Sources */,
 				DD257E932C89004C002E9166 /* GameScene.swift in Sources */,
 				DD257E952C89004C002E9166 /* GameViewController.swift in Sources */,
 				DD257E8D2C89004C002E9166 /* AppDelegate.swift in Sources */,
