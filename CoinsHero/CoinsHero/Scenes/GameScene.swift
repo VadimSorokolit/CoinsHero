@@ -91,7 +91,7 @@ class GameScene: SKScene {
             self.addChild(background)
         }
     }
-    
+
     private func createGround() {
         let groundTexture = SKTexture(imageNamed: "ground")
         let groundWidth = groundTexture.size().width
@@ -105,12 +105,18 @@ class GameScene: SKScene {
             ground.zPosition = 1.0
             ground.xScale = 2.2
             ground.yScale = 2.2
+            
+            let moveGround = SKAction.moveBy(x: -groundWidth, y: .zero, duration: 10.0)
+            let resetGround = SKAction.moveBy(x: groundWidth, y: .zero, duration: .zero)
+            let moveGroundForever = SKAction.repeatForever(SKAction.sequence([moveGround, resetGround]))
+            
+            ground.run(moveGroundForever)
             self.addChild(ground)
         }
         
         self.ground = SKSpriteNode(texture: groundTexture)
         self.ground.position = .zero
-        self.ground.size = CGSize(width: groundWidth * 5, height: groundTexture.size().height * 2.2)
+        self.ground.size = CGSize(width: groundWidth * 5.0, height: groundTexture.size().height * 2.2)
         self.addChild(self.ground)
     }
     
