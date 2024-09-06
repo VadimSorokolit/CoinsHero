@@ -69,12 +69,12 @@ class GameScene: SKScene {
         
         let sprite = SKSpriteNode(texture: spriteTexture)
         sprite.name = "backButton"
-        sprite.position = CGPoint(x: self.size.width / 2.0 - 1000.0, y: self.size.height / 2.0 + 400.0) // Position the back button
-        sprite.zPosition = 100.0
-        sprite.size = CGSize(width: spriteTexture.size().width * 0.3, height: spriteTexture.size().height * 0.3)
         
-        // Create a larger hit area for easier tapping
-        let hitArea = SKSpriteNode(color: .clear, size: CGSize(width: sprite.size.width * 2.0, height: sprite.size.height * 2))
+        sprite.position = CGPoint(x: self.size.width / 2.0 - 1000.0, y: self.size.height / 2.0 + 380.0)
+        sprite.zPosition = 100.0
+        sprite.size = CGSize(width: 80, height: 90)
+        
+        let hitArea = SKSpriteNode(color: .clear, size: CGSize(width: sprite.size.width * 2.5, height: sprite.size.height * 2.5))
         hitArea.position = sprite.position
         hitArea.zPosition = sprite.zPosition
         hitArea.name = "backButtonHitArea"
@@ -178,7 +178,7 @@ class GameScene: SKScene {
             
             // Calculate position for each life
             let xPosition = additionalOffset + health.size.width / 2 + CGFloat(i) * (health.size.width * 0.2 + spacing)
-            health.position = CGPoint(x: xPosition, y: size.height - health.size.height / 2.0 - 330.0)
+            health.position = CGPoint(x: xPosition, y: size.height - health.size.height / 2.0 - 350.0)
             health.zPosition = 8.0
             
             self.addChild(health)
@@ -196,7 +196,7 @@ class GameScene: SKScene {
         // Calculate position based on lives' positions
         let livesHeight = self.lives.first?.size.height ?? .zero
         let xOffset: CGFloat = 240.0
-        let yOffset: CGFloat = -90.0
+        let yOffset: CGFloat = -70.0
         
         // Setup score lable position. TODO: Needs for refactoring
         self.scoreLabel.position = CGPoint(
