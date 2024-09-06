@@ -57,6 +57,13 @@ class SelectLevelViewController: UIViewController {
         self.setup()
     }
     
+    // Play music when the view appears
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupAudio()
+    }
+    
     // Stop music when the view is about to disappear
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

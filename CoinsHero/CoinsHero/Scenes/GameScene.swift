@@ -86,7 +86,7 @@ class GameScene: SKScene {
     private func createBackground() {
         let backgroundTexture = SKTexture(imageNamed: "background")
         let moveDuration: TimeInterval = 4.0
-        let numberOfBackgrounds = 4 // Number of background sprites to create for seamless scrolling
+        let numberOfBackgrounds = 4
         
         // Setup background
         for i in 0..<numberOfBackgrounds {
@@ -228,12 +228,12 @@ class GameScene: SKScene {
         self.coins.append(coin)
     }
     
-    private func spawnRock() {
+    private func createRock() {
         let rockTexture = SKTexture(imageNamed: "rock")
         let rock = SKSpriteNode(texture: rockTexture)
-        rock.setScale(0.2)
+        rock.setScale(0.3)
         
-        // Calculate spawn position off the right side of the screen
+        // Calculate rock position off the right side of the screen
         let xPosition = self.size.width + rock.size.width / 2.0
         let yPosition = self.ground.position.y + self.ground.size.height + rock.size.height / 2.0 - 10.0
         
@@ -260,7 +260,7 @@ class GameScene: SKScene {
     private func startSpawningRocks() {
         // Schedule a timer to spawn rocks every 4 seconds
         self.rockSpawnTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { [weak self] _ in
-            self?.spawnRock()
+            self?.createRock()
         }
     }
     
@@ -435,6 +435,7 @@ class GameScene: SKScene {
             
             if node.name == "backButton" || node.name == "backButtonHitArea" {
                 self.backButtonTappedHandler?()
+                self.backgroundMusicPlayer?.stop()
             } else {
                 self.jumpHero()
             }
