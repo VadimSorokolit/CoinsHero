@@ -12,6 +12,7 @@ class MenuViewController: UIViewController {
     
     // MARK: - Objects
     
+    // Constants for button colors
     private struct Constants {
         static let buttonsTextColor: UIColor = UIColor(hexString: "FFCC00")
         static let buttonsBorderColor: CGColor = UIColor.black.cgColor
@@ -19,6 +20,7 @@ class MenuViewController: UIViewController {
     
     // MARK: - Properties
     
+    // Button to start the game
     private lazy var startButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Start Game", for: .normal)
@@ -29,6 +31,7 @@ class MenuViewController: UIViewController {
         return button
     }()
     
+    // Button to open options
     private lazy var optionsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Options", for: .normal)
@@ -39,6 +42,7 @@ class MenuViewController: UIViewController {
         return button
     }()
     
+    // Button to show high scores
     private lazy var highScoreButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("High Score", for: .normal)
@@ -49,6 +53,7 @@ class MenuViewController: UIViewController {
         return button
     }()
     
+    // SKView to display SpriteKit content
     private lazy var skView: SKView = {
         let skView = SKView(frame: self.view.bounds)
         return skView
@@ -68,15 +73,18 @@ class MenuViewController: UIViewController {
         self.setupViews()
     }
     
+    // Adding SKView and buttons to the view hierarchy
     private func setupViews() {
         self.view.addSubview(self.skView)
         self.view.addSubview(self.startButton)
         self.view.addSubview(self.optionsButton)
         self.view.addSubview(self.highScoreButton)
         
+        // Setting up the SpriteKit scene
         let scene = SKScene(size: self.skView.bounds.size)
         scene.scaleMode = .aspectFill
         
+        // Adding a background image to the scene
         let background = SKSpriteNode(imageNamed: "background")
         let xPostion = scene.size.width / 2.0
         let yPosition = scene.size.height / 2.0
@@ -84,8 +92,10 @@ class MenuViewController: UIViewController {
         background.size = scene.size
         scene.addChild(background)
         
+        // Presenting the scene in the SKView
         self.skView.presentScene(scene)
         
+        // Setting up constraints for buttons
         NSLayoutConstraint.activate([
             self.startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.startButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -60.0),
@@ -95,7 +105,7 @@ class MenuViewController: UIViewController {
             self.highScoreButton.topAnchor.constraint(equalTo: self.optionsButton.bottomAnchor, constant: 20.0)
         ])
     }
-
+    
     // MARK: - Events
     
     @objc private func startGame() {
@@ -103,11 +113,8 @@ class MenuViewController: UIViewController {
         navigationController?.pushViewController(selectLevelViewController, animated: true)
     }
     
-    @objc private func openOptions() {
-    }
+    @objc private func openOptions() {}
     
-    @objc private func showHighScore() {
- 
-    }
+    @objc private func showHighScore() {}
     
 }

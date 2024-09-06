@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
         self.setup()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     private func setup() {
         self.setupViews()
